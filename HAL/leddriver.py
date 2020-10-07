@@ -2,7 +2,7 @@ if __name__ == "__main__":
 	from i2c import pca9685
 	import time
 else:
-	from HAL.i2c import pca9685
+	from .i2c import pca9685
 
 
 class LEDDriver:
