@@ -2,13 +2,16 @@ if __name__ == "__main__":
 	from i2c import pca9685
 	import time
 else:
-	from HAL.i2c import pca9685
+	from .i2c import pca9685
 import math
+from . import leddriver
+led = leddriver.LEDDriver()
 
 
 class ServoDriver:
 	def __init__(self):
 		self.controller = pca9685.PCA9685(0x40, pca9685.PCA9685.TOTEMPOLE, 50)
+		led.led_off()
 
 	def set_pulse_width(self, width, led):
 		try:
